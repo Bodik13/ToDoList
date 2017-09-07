@@ -15,6 +15,7 @@ class NewTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboaardWhenTapAround()
         self.title = "Add new task"
         // Do any additional setup after loading the view.
     }
@@ -28,6 +29,7 @@ class NewTaskViewController: UIViewController {
         CoreDataManager.addTask(taskName: self.taskTitleTextField.text!, taskDescription: self.taskDescription.text, isCompleted: false)
         self.navigationController?.popViewController(animated: true)
     }
+
 
     /*
     // MARK: - Navigation

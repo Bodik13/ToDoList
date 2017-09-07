@@ -78,3 +78,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
 }
 
+extension UIViewController {
+    func hideKeyboaardWhenTapAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func hideKeyboard() {
+        self.view.endEditing(false)
+    }
+}
+

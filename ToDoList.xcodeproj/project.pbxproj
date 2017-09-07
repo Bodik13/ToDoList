@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A2302E51F619B69000D0D10 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2302E41F619B69000D0D10 /* ItemTableViewCell.swift */; };
+		6A2302E71F61A2C0000D0D10 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2302E61F61A2C0000D0D10 /* NavController.swift */; };
 		6A5D3BE01F5D52C600E110BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D3BDF1F5D52C600E110BB /* AppDelegate.swift */; };
 		6A5D3BE21F5D52C600E110BB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D3BE11F5D52C600E110BB /* MainViewController.swift */; };
 		6A5D3BE51F5D52C600E110BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A5D3BE31F5D52C600E110BB /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A2302E41F619B69000D0D10 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		6A2302E61F61A2C0000D0D10 /* NavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
 		6A5D3BDC1F5D52C600E110BB /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A5D3BDF1F5D52C600E110BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A5D3BE11F5D52C600E110BB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A2302E31F619B3E000D0D10 /* Controlls */ = {
+			isa = PBXGroup;
+			children = (
+				6A2302E41F619B69000D0D10 /* ItemTableViewCell.swift */,
+			);
+			name = Controlls;
+			sourceTree = "<group>";
+		};
 		6A5D3BD31F5D52C600E110BB = {
 			isa = PBXGroup;
 			children = (
@@ -64,7 +76,7 @@
 		6A5D3BDE1F5D52C600E110BB /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				6AED67821F5D8AED009AA5DD /* CoreDataManager.swift */,
+				6A2302E31F619B3E000D0D10 /* Controlls */,
 				6AED67851F5D8BA6009AA5DD /* Models */,
 				6AED678E1F5D96D1009AA5DD /* Controllers */,
 				6AED67841F5D8AF7009AA5DD /* Supporting Files */,
@@ -88,6 +100,7 @@
 		6AED67851F5D8BA6009AA5DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6AED67821F5D8AED009AA5DD /* CoreDataManager.swift */,
 				6AED678A1F5D8C00009AA5DD /* Task+CoreDataClass.swift */,
 				6AED678B1F5D8C00009AA5DD /* Task+CoreDataProperties.swift */,
 			);
@@ -99,6 +112,7 @@
 			children = (
 				6A5D3BE11F5D52C600E110BB /* MainViewController.swift */,
 				6AED678F1F5D9708009AA5DD /* NewTaskViewController.swift */,
+				6A2302E61F61A2C0000D0D10 /* NavController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -180,6 +194,8 @@
 				6AED67901F5D9708009AA5DD /* NewTaskViewController.swift in Sources */,
 				6AED678C1F5D8C00009AA5DD /* Task+CoreDataClass.swift in Sources */,
 				6A5D3BE81F5D52C600E110BB /* ToDoList.xcdatamodeld in Sources */,
+				6A2302E51F619B69000D0D10 /* ItemTableViewCell.swift in Sources */,
+				6A2302E71F61A2C0000D0D10 /* NavController.swift in Sources */,
 				6AED67831F5D8AED009AA5DD /* CoreDataManager.swift in Sources */,
 				6AED678D1F5D8C00009AA5DD /* Task+CoreDataProperties.swift in Sources */,
 				6A5D3BE01F5D52C600E110BB /* AppDelegate.swift in Sources */,

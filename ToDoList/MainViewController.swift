@@ -21,6 +21,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 100/255, green: 173/255, blue: 142/255, alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         self.title = "To-Do List"
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -44,17 +47,19 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "reusebleCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ItemTableViewCell
         let task = self.tasks[indexPath.row]
+        cell.rightLabel.text = task.isCompleted ? "\u{2705}" : "\u{2B1C}"
         cell.textLabel?.text = task.taskName
         cell.detailTextLabel?.text = task.taskDescription
+        
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        CoreDataManager.deleteTask(task: self.tasks[indexPath.row])
-//        self.tasks = CoreDataManager.tasksData()
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tasks[indexPath.row].isCompleted = self.tasks[indexPath.row].isCompleted ? false : true
+        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -70,5 +75,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.tasks = CoreDataManager.tasksData()
         }
     }
+    
 }
 

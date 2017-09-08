@@ -17,6 +17,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.tableView.reloadData()
         }
     }
+    
+    var completedTasks = [Task]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tasks = CoreDataManager.tasksData()
+        self.tasks.sort { (task1, task2) -> Bool in
+            task1.isCompleted == false
+        }
     }
     
     @IBAction func addButtonClicked(_ sender: Any) {
@@ -52,13 +57,21 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.rightLabel.text = task.isCompleted ? "\u{2705}" : "\u{2B1C}"
         cell.textLabel?.text = task.taskName
         cell.detailTextLabel?.text = task.taskDescription
+        cell.contentView.alpha = task.isCompleted ? 0.3 : 1
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tasks[indexPath.row].isCompleted = self.tasks[indexPath.row].isCompleted ? false : true
-        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        self.tasks.sort { (task1, task2) -> Bool in
+            task1.isCompleted == false
+        }
+        
+        UIView.transition(with: tableView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.tableView.reloadData()
+        }, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
